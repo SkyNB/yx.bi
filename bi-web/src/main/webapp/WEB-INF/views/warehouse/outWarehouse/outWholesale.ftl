@@ -1,0 +1,167 @@
+<#import "/WEB-INF/templates/master.ftl" as layout>
+<#-- 批发出库 -->
+<@layout.master>
+<div id="column-container">
+    <div id="content-main-section">
+
+        <!--弹出框开始  -->
+        <div id="updateContCodeDialog" <#--class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false"-->>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true"></button>
+                        <h4 class="modal-title text-left">
+                            <i class="fa fa-pencil"></i> <span style="font-weight: bold">批发出库/零售出库</span>
+                        </h4>
+                    </div>
+                    <form class="form-horizontal form-bordered form-row-strippe"
+                          id="dlg_form" action="updateContCode"
+                          method="post">
+                        <input type="hidden" name="ccId" value=""/>
+                        <input type="hidden" name="saasId" value="" class="form-control input-inline input-medium pull-left">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">订单编号<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccContSize" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">花瓶名称<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccContType" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">花瓶编号<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccContWt" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">花瓶类型<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccCode95" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">花瓶颜色<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccCodeHj" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">花瓶规格<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccFeu" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">批发/零售<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccCodeOocl" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">花瓶箱数<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccTeu" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">花瓶单位数量<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccCodeOocl" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">花瓶批发总数<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccTeu" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">花瓶批发单价<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccCodeOocl" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">花瓶批发总价<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccTeu" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group not-error">
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-3">售货员<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccCodeOocl" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group-item">
+                                            <label class="control-label col-md-2">订单创建时间<span class="required"> * </span></label>
+                                            <div class="col-md-3">
+                                                <input type="text" name="bccTeu" value="" class="form-control"
+                                                       placeholder="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success" type="submit">确定</button>
+                            <a class="btn btn-warning" data-dismiss="modal" >取消</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <#-- 弹出框结束 -->
+
+
+
+    </div>
+</div>
+</@layout.master>
